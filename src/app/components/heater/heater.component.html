@@ -1,0 +1,23 @@
+<div class="container">
+    <svg class="heater-image">
+        <circle cx="100" cy="100" r="98" stroke="gray" stroke-width="4" fill="transparent" />
+        <line x1="100" y1="0" x2="100" y2="-18" stroke-width="6" stroke="black"
+            [attr.transform]="'rotate('+minDegree+',100,100)'"></line>
+        <line x1="100" y1="0" x2="100" y2="-18" stroke-width="6" stroke="black"
+            [attr.transform]="'rotate('+maxDegree+',100,100)'"></line>
+        <line x1="100" y1="60" x2="100" y2="0" stroke-width="6" [attr.stroke]="tempColor"
+            [attr.transform]="'rotate('+degree+',100,100)'"></line>
+    </svg>
+
+    <div class="temp-container">
+        {{targetTemp}}&#8451;
+    </div>
+
+    <div *ngIf="errors.length>0" class="error-container">
+        <ol>
+            <ng-container *ngFor="let err of errors">
+                <li>{{err}}</li>
+            </ng-container>
+        </ol>
+    </div>
+</div>
